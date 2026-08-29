@@ -1,8 +1,10 @@
 # Phần của Trần Thị Kiều Trang - Day 27 AI Team Lab
 
+> Supplementary individual working notes preserved from the teammate commit. The confirmed final submission uses the team-approved stakeholder and pitch artefacts in `Artifact/individual/`, `Artifact/JOB.md`, and the generator; role-based external candidates and metrics below remain review context and are not claims in the final PDF.
+
 ## Trạng thái và phạm vi
 
-- Dự án: **DataUnify** (tên sản phẩm đã được thành viên xác nhận; tên repository hiện dùng `DataUnifi`).
+- Dự án: **DataUnifi**.
 - Owner: Trần Thị Kiều Trang.
 - Phạm vi: Trang 1 - Stakeholder Map & Strategy; phần Pitch và xử lý phản biện của Trang 2.
 - Trạng thái: **CONTENT COMPLETE - SẴN SÀNG TÍCH HỢP VÀO PDF**.
@@ -10,7 +12,7 @@
 
 ## Mục tiêu 1-3 tháng đề xuất
 
-Đưa DataUnify từ MVP/POC kỹ thuật đến trạng thái **pilot-ready**: hoàn thiện các kiểm soát bảo mật và export ưu tiên P1, xác nhận lại chất lượng Cleaning/Mapping/Matching trên dữ liệu ẩn danh hoặc gần thực tế, đồng thời chuẩn bị một pilot giới hạn có tiêu chí chấp nhận, human approval và audit rõ ràng.
+Đưa DataUnifi từ MVP/POC kỹ thuật đến trạng thái **pilot-ready**: hoàn thiện các kiểm soát bảo mật và export ưu tiên P1, xác nhận lại chất lượng Cleaning/Mapping/Matching trên dữ liệu ẩn danh hoặc gần thực tế, đồng thời chuẩn bị một pilot giới hạn có tiêu chí chấp nhận, human approval và audit rõ ràng.
 
 ---
 
@@ -71,7 +73,7 @@
 
 ## Gate 1 - Tự kiểm tra
 
-- [x] Có ít nhất 6 stakeholder cụ thể theo vai trò và quan hệ với DataUnify.
+- [x] Có ít nhất 6 stakeholder cụ thể theo vai trò và quan hệ với DataUnifi.
 - [x] Mỗi stakeholder được map theo Influence x Interest.
 - [x] Quadrant và stance được tách riêng.
 - [x] Có 2 stakeholder cần tận dụng sự ủng hộ.
@@ -91,9 +93,9 @@ Head of Data/Operations có quyền phê duyệt pilot tại doanh nghiệp đan
 
 ## Pitch
 
-**Kết luận/đề xuất:** Đánh giá DataUnify bằng pilot giới hạn với dữ liệu synthetic/ẩn danh, chưa kết nối production.
+**Kết luận/đề xuất:** Đánh giá DataUnifi bằng pilot giới hạn với dữ liệu synthetic/ẩn danh, chưa kết nối production.
 
-**Lý do 1 - Đúng vấn đề:** DataUnify làm sạch, chuẩn hóa và ghép hồ sơ trùng lặp hoặc khác schema. Người vận hành review rule AI và dry-run trước khi áp dụng.
+**Lý do 1 - Đúng vấn đề:** DataUnifi làm sạch, chuẩn hóa và ghép hồ sơ trùng lặp hoặc khác schema. Người vận hành review rule AI và dry-run trước khi áp dụng.
 
 **Lý do 2 - Có kiểm soát:** Hệ thống multi-tenant hỗ trợ masking, consent, phân quyền, approval, rollback và audit. AI chỉ đề xuất; rule và kết quả không chắc chắn vẫn qua human review.
 
@@ -105,7 +107,7 @@ Head of Data/Operations có quyền phê duyệt pilot tại doanh nghiệp đan
 
 ## Phản biện chính
 
-> "Kết quả synthetic/offline chưa chứng minh DataUnify an toàn và chính xác với dữ liệu doanh nghiệp thật."
+> "Kết quả synthetic/offline chưa chứng minh DataUnifi an toàn và chính xác với dữ liệu doanh nghiệp thật."
 
 ## Cách xử lý dựa trên bằng chứng và giảm rủi ro
 
