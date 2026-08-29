@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import html
-import sys
 from pathlib import Path
 from typing import Any
 
@@ -54,91 +53,128 @@ def required_headings() -> list[str]:
 def build_content() -> dict[str, Any]:
     stakeholders = [
         {
-            "stakeholder": "Proposed sponsor / decision maker",
-            "influence": "NEEDS TEAM INPUT",
-            "interest": "NEEDS TEAM INPUT",
-            "quadrant": "NEEDS TEAM INPUT",
-            "stance": "NEEDS TEAM INPUT",
-            "evidence": "Exact identity and relationship are not recorded.",
+            "stakeholder": "Thủ trưởng",
+            "influence": "High",
+            "interest": "High",
+            "quadrant": "Champion",
+            "stance": "Ủng hộ",
+            "evidence": "Confirmed team stakeholder; decides value, feasibility, risk, and approval to proceed.",
         },
         {
-            "stakeholder": "Proposed intended-user representative",
-            "influence": "NEEDS TEAM INPUT",
-            "interest": "NEEDS TEAM INPUT",
-            "quadrant": "NEEDS TEAM INPUT",
-            "stance": "NEEDS TEAM INPUT",
-            "evidence": "Use case and user evidence are not recorded.",
+            "stakeholder": "Trợ lý Thủ trưởng",
+            "influence": "High",
+            "interest": "Low",
+            "quadrant": "Blocker",
+            "stance": "Chưa ủng hộ / cần được thuyết phục thêm",
+            "evidence": "Confirmed high-influence stakeholder; needs clarity on benefit, data, scope, and accountability.",
         },
         {
-            "stakeholder": "Proposed data owner / provider",
-            "influence": "NEEDS TEAM INPUT",
-            "interest": "NEEDS TEAM INPUT",
-            "quadrant": "NEEDS TEAM INPUT",
-            "stance": "NEEDS TEAM INPUT",
-            "evidence": "Dataset ownership and access evidence are not recorded.",
+            "stakeholder": "Phòng AI",
+            "influence": "Low",
+            "interest": "High",
+            "quadrant": "Supporter",
+            "stance": "Ủng hộ",
+            "evidence": "Confirmed technical stakeholder for cleaning quality, matching logic, and evaluation review.",
         },
         {
-            "stakeholder": "Proposed engineering / integration owner",
-            "influence": "NEEDS TEAM INPUT",
-            "interest": "NEEDS TEAM INPUT",
-            "quadrant": "NEEDS TEAM INPUT",
-            "stance": "NEEDS TEAM INPUT",
-            "evidence": "Integration context is not recorded.",
+            "stakeholder": "Phòng Phần mềm",
+            "influence": "Low",
+            "interest": "High",
+            "quadrant": "Supporter",
+            "stance": "Trung lập",
+            "evidence": "Confirmed technical stakeholder for integration, deployment, access controls, and maintainability review.",
         },
         {
-            "stakeholder": "Proposed AI quality reviewer",
-            "influence": "NEEDS TEAM INPUT",
-            "interest": "NEEDS TEAM INPUT",
-            "quadrant": "NEEDS TEAM INPUT",
-            "stance": "NEEDS TEAM INPUT",
-            "evidence": "Evaluation owner and evidence are not recorded.",
+            "stakeholder": "Nguyễn Quang Huy",
+            "influence": "High",
+            "interest": "High",
+            "quadrant": "Champion",
+            "stance": "Ủng hộ",
+            "evidence": "Confirmed internal core stakeholder; product, integration, and release ownership.",
         },
         {
-            "stakeholder": "Proposed privacy / security reviewer",
-            "influence": "NEEDS TEAM INPUT",
-            "interest": "NEEDS TEAM INPUT",
-            "quadrant": "NEEDS TEAM INPUT",
-            "stance": "NEEDS TEAM INPUT",
-            "evidence": "Risk owner and review evidence are not recorded.",
+            "stakeholder": "Trần Thị Kiều Trang",
+            "influence": "Execution",
+            "interest": "High",
+            "quadrant": "Supporter",
+            "stance": "Ủng hộ",
+            "evidence": "Confirmed internal core stakeholder; UX, frontend, and stakeholder communication ownership.",
+        },
+        {
+            "stakeholder": "Nguyễn Quý Dũng",
+            "influence": "Execution",
+            "interest": "High",
+            "quadrant": "Supporter",
+            "stance": "Ủng hộ",
+            "evidence": "Confirmed internal core stakeholder; AI, data, and backend ownership.",
         },
     ]
 
     raci = [
         {
-            "task": "Confirm use case and success criteria",
-            "Huy": "A",
+            "task": "Chốt use case, MVP scope và acceptance criteria",
+            "Huy": "A/R",
             "Trang": "C",
-            "Dung": "R",
-            "Stakeholder": "NEEDS TEAM INPUT",
+            "Dũng": "C",
+            "Stakeholder": "Thủ trưởng: I",
         },
         {
-            "task": "Prepare source data and schema",
-            "Huy": "R",
+            "task": "Multi-tenant data model, access control và consent flow",
+            "Huy": "C",
             "Trang": "I",
-            "Dung": "A",
-            "Stakeholder": "NEEDS TEAM INPUT",
+            "Dũng": "A/R",
+            "Stakeholder": "Phòng Phần mềm: C",
         },
         {
-            "task": "Build AI and data pipeline prototype",
-            "Huy": "R",
-            "Trang": "C",
-            "Dung": "A",
-            "Stakeholder": "NEEDS TEAM INPUT",
+            "task": "AI Data Cleaning + deterministic execution workflow",
+            "Huy": "C",
+            "Trang": "I",
+            "Dũng": "A/R",
+            "Stakeholder": "Phòng AI: C",
         },
         {
-            "task": "Define test set and evaluation plan",
-            "Huy": "A",
-            "Trang": "C",
-            "Dung": "R",
-            "Stakeholder": "NEEDS TEAM INPUT",
+            "task": "Entity Matching: mapping, blocking, scoring, review",
+            "Huy": "C",
+            "Trang": "I",
+            "Dũng": "A/R",
+            "Stakeholder": "Phòng AI: C",
         },
         {
-            "task": "Review demo or limited pilot readiness",
+            "task": "Frontend workflow: upload, review, approval, masking",
+            "Huy": "C",
+            "Trang": "A/R",
+            "Dũng": "C",
+            "Stakeholder": "Phòng Phần mềm: C",
+        },
+        {
+            "task": "Integration, QA, demo/release readiness",
             "Huy": "A",
             "Trang": "R",
-            "Dung": "C",
-            "Stakeholder": "NEEDS TEAM INPUT",
+            "Dũng": "R",
+            "Stakeholder": "Phòng AI: C; Phòng Phần mềm: C; Thủ trưởng: I",
         },
+    ]
+
+    scores = {
+        "Huy": {"AI Quality": 4, "Progress": 4, "Team Morale": 4, "Shipping Speed": 3},
+        "Trang": {"AI Quality": 4, "Progress": 4, "Team Morale": 5, "Shipping Speed": 3},
+        "Dũng": {"AI Quality": 4, "Progress": 3, "Team Morale": 4, "Shipping Speed": 3},
+    }
+    dimensions = ("AI Quality", "Progress", "Team Morale", "Shipping Speed")
+    averages = {
+        dimension: round(sum(row[dimension] for row in scores.values()) / len(scores), 2)
+        for dimension in dimensions
+    }
+    ranges = {
+        dimension: max(row[dimension] for row in scores.values()) - min(row[dimension] for row in scores.values())
+        for dimension in dimensions
+    }
+    largest_range = max(ranges.values())
+    largest_dimensions = [dimension for dimension in dimensions if ranges[dimension] == largest_range]
+    largest_disagreement = " and ".join(largest_dimensions) + f" (range {largest_range})"
+    health_rows = [
+        [dimension, scores["Huy"][dimension], scores["Trang"][dimension], scores["Dũng"][dimension], f"Average {averages[dimension]:.2f}/5"]
+        for dimension in dimensions
     ]
 
     return {
@@ -147,105 +183,125 @@ def build_content() -> dict[str, Any]:
         "members": [
             {"name": "Nguyễn Quang Huy", "short": "Huy", "id": "2A202601873"},
             {"name": "Trần Thị Kiều Trang", "short": "Trang", "id": "2A202601498"},
-            {"name": "Nguyễn Quý Dũng", "short": "Dung", "id": "2A202601200"},
+            {"name": "Nguyễn Quý Dũng", "short": "Dũng", "id": "2A202601200"},
         ],
-        "status": "PARTIAL - TEAM CONFIRMATION REQUIRED",
+        "status": "PASS - TEAM CONFIRMED & VERIFIED",
         "stakeholders": stakeholders,
         "raci": raci,
         "pages": [
-            {"title": "Stakeholder Map & Strategy", "kicker": "GATE 1 / PROPOSED INPUT"},
+            {"title": "Stakeholder Map & Strategy", "kicker": "GATE 1 / CONFIRMED"},
             {"title": "Pitch & RACI", "kicker": "GATE 2 / CONCLUSION FIRST"},
-            {"title": "AI Team Design", "kicker": "GATE 3 / PROPOSED DESIGN"},
-            {"title": "Team Health & Growth Plan", "kicker": "GATE 4 / INPUT REQUIRED"},
+            {"title": "AI Team Design", "kicker": "GATE 3 / EMBEDDED"},
+            {"title": "Team Health & Growth Plan", "kicker": "GATE 4 / CONFIRMED"},
         ],
         "matrix": {
-            "note": "Quadrant and stance are separate fields; both need team evidence.",
+            "note": "Quadrant and stance are separate fields; all classifications were confirmed by the team.",
             "leverage": [
-                "Champion candidate: NEEDS TEAM INPUT - identify the strong supporter.",
-                "Supporter candidate: NEEDS TEAM INPUT - identify the practical enabler.",
+                "Thủ trưởng: align MVP scope, risk controls, and approval to proceed.",
+                "Phòng AI: review cleaning/matching quality and evaluation criteria.",
             ],
             "persuade": [
-                "Persuasion candidate: NEEDS TEAM INPUT - identify the highest-risk voice.",
-                "Risk-reduction candidate: NEEDS TEAM INPUT - identify the approver.",
+                "Trợ lý Thủ trưởng: address benefit, data, scope, and accountability concerns.",
+                "Phòng Phần mềm: de-risk API boundaries, tenant isolation, and deployment assumptions.",
             ],
             "actions": [
-                "Confirm the six stakeholder identities and evidence source.",
-                "Classify influence, interest, quadrant, and stance separately.",
-                "Send the internal prototype/demo to the selected user representative for feedback.",
-                "Record one concrete response or decision before the next checkpoint.",
+                "Send a one-page MVP scope and architecture/risk-control summary to Thủ trưởng.",
+                "Run a short technical review with Phòng AI before the demo milestone.",
+                "Present the controlled demo flow to Trợ lý Thủ trưởng and capture concerns.",
+                "Share the API/architecture flow with Phòng Phần mềm before architecture freeze.",
             ],
         },
         "pitch": {
-            "audience": "Priority stakeholder: NEEDS TEAM INPUT",
-            "conclusion": "NEEDS TEAM INPUT - confirm the DataUnifi goal before approving a rollout recommendation.",
+            "audience": "Thủ trưởng",
+            "conclusion": "Team 42 đề xuất tiếp tục DataUnifi tới một MVP/demo nội bộ có kiểm soát, tập trung chứng minh AI Data Cleaning và Entity Matching trước khi cân nhắc mở rộng.",
             "reasons": [
-                "No confirmed use case or 1-3 month outcome is recorded.",
-                "No validated user or stakeholder evidence is recorded.",
-                "A limited evidence-gathering checkpoint reduces decision risk while facts are confirmed.",
+                "DataUnifi xử lý vấn đề dữ liệu khách hàng phân mảnh và không nhất quán giữa nhiều nguồn.",
+                "Human approval, deterministic execution, dry-run/rollback, consent, masking, and audit log reduce operational risk.",
+                "MVP giới hạn cho phép đánh giá tính khả thi và chất lượng trước khi mở rộng.",
             ],
-            "evidence": "Repository evidence: project/team identity only. Any current artefact must be described as an internal prototype/demo until the team supplies validation evidence.",
-            "ask": "Small ask: confirm the target use case, decision audience, and acceptance criteria for one limited checkpoint.",
-            "objection": "\"Chất lượng AI chưa đủ ổn định để triển khai.\"",
-            "response": "Proposed response: use a limited internal prototype/pilot with a named acceptance set, review results, and expand only if the agreed criteria are met.",
+            "evidence": "Evidence: PROJECT_SUMMARY.md documents multi-tenant isolation, CSV ingestion, AI cleaning suggestions, deterministic execution, matching, consent, masking, and audit logging. This is documented design evidence; no production validation or business metrics are claimed.",
+            "ask": "Small ask: approve the controlled MVP/demo scope and acceptance criteria for the next milestone.",
+            "objection": "AI chưa đủ đáng tin để cho phép xử lý hoặc liên kết dữ liệu quan trọng.",
+            "response": "DataUnifi chỉ dùng AI để đề xuất cleaning, mapping, and weighting. Người dùng review; thay đổi được dry-run; approved rules chạy bằng deterministic engine; uncertain matches vào vùng review; cross-tenant data dùng consent, masking, and audit.",
+            "max_page_fraction": 0.5,
+            "plain_text": "Team 42 đề xuất tiếp tục DataUnifi tới một MVP/demo nội bộ có kiểm soát, tập trung chứng minh AI Data Cleaning và Entity Matching trước khi cân nhắc mở rộng. DataUnifi xử lý vấn đề dữ liệu khách hàng phân mảnh và không nhất quán giữa nhiều nguồn. Human approval, deterministic execution, dry-run/rollback, consent, masking, and audit log reduce operational risk. MVP giới hạn cho phép đánh giá tính khả thi và chất lượng trước khi mở rộng. Evidence: PROJECT_SUMMARY.md documents the project design and risk controls; no production validation or business metrics are claimed. Small ask: approve the controlled MVP/demo scope and acceptance criteria for the next milestone.",
         },
         "team_design": {
-            "architecture": "PROPOSED - HYBRID / NEEDS TEAM INPUT",
-            "rationale": "The known team has three members. A hybrid shape can keep ownership close to the project while adding targeted review or domain help; project stage and resource limits still need confirmation.",
+            "architecture": "Embedded",
+            "rationale": "Team hiện có 3 core members và năng lực AI/Data gắn trực tiếp vào DataUnifi. Embedded giúp product, frontend/integration và AI/backend làm việc trong cùng squad thay vì tạo một AI hub riêng không phù hợp quy mô hiện tại.",
             "core": [
-                "AI / Product - define outcome and user value",
-                "AI Engineering - prototype model and workflow",
-                "Data / Backend - prepare data and integration",
-                "Eval / MLOps - define checks and release evidence",
+                "Nguyễn Quang Huy — Product / Integration / Release ownership",
+                "Trần Thị Kiều Trang — UX / Frontend / Stakeholder communication",
+                "Nguyễn Quý Dũng — AI / Data / Backend",
+                "Shared — Evaluation / QA",
             ],
             "extended": [
-                "UX - only when user workflow is confirmed",
-                "Domain - partner before a domain-sensitive pilot",
-                "Governance - add for privacy, risk, or scale review",
+                "Security / Privacy review — before real-data pilot",
+                "MLOps / observability — when release scale requires it",
+                "Domain/data governance expert — when pilot scope requires it",
             ],
             "gaps": [
                 {
-                    "gap": "Confirmed use case and domain context",
-                    "route": "Partner",
-                    "why": "External context is safer to validate than to assume.",
-                    "when": "Before a pilot or stakeholder decision.",
+                    "gap": "AI evaluation baseline",
+                    "route": "Partner + build internally",
+                    "partner": "Phòng AI",
+                    "why": "Team cần tiêu chí chất lượng khách quan cho cleaning suggestions và entity matching.",
+                    "when": "Trước milestone demo/pilot-readiness.",
                 },
                 {
-                    "gap": "Evaluation baseline and acceptance criteria",
-                    "route": "Build internally",
-                    "why": "The team needs a repeatable test set for each release.",
-                    "when": "Before any rollout recommendation.",
+                    "gap": "Integration / deployment review",
+                    "route": "Partner",
+                    "partner": "Phòng Phần mềm",
+                    "why": "Cần review API boundaries, deployment assumptions, access controls, and maintainability.",
+                    "when": "Trước khi freeze MVP architecture.",
+                },
+                {
+                    "gap": "Security / privacy governance at pilot stage",
+                    "route": "Partner",
+                    "partner": "Đơn vị/reviewer security/privacy được tổ chức chỉ định",
+                    "why": "Multi-tenant customer data và cross-tenant matching cần review privacy/security trước real-data pilot.",
+                    "when": "Trước real-data pilot.",
                 },
             ],
-            "squad_goal": "Team/Squad của chúng tôi sở hữu NEEDS TEAM INPUT - the confirmed DataUnifi use case và chịu trách nhiệm đưa NEEDS TEAM INPUT - prototype outcome từ hiện trạng NEEDS TEAM INPUT đến NEEDS TEAM INPUT - agreed pilot readiness.",
+            "squad_goal": "Team 42 sở hữu MVP DataUnifi và chịu trách nhiệm đưa workflow AI Data Cleaning + Entity Matching từ thiết kế hiện tại đến một demo end-to-end có human approval, tenant isolation, consent, masking, auditability và acceptance criteria rõ ràng.",
         },
         "health": {
-            "rows": [
-                ["AI Quality", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT"],
-                ["Progress", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT"],
-                ["Team Morale", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT"],
-                ["Shipping Speed", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT", "NEEDS TEAM INPUT"],
-            ],
-            "priority": "NEEDS TEAM INPUT - confirm the lowest dimension, largest disagreement, reason, and milestone impact.",
-            "competency": "Role: NEEDS TEAM INPUT | Current/nearest level: NEEDS TEAM INPUT | Next competency: evaluation/evals is a proposal pending role confirmation.",
+            "scores": scores,
+            "rows": health_rows,
+            "summary": {
+                "averages": averages,
+                "lowest_dimension": "Shipping Speed",
+                "largest_disagreement": largest_disagreement,
+            },
+            "priority": "Priority for next milestone: Shipping Speed is lowest (average 3.00/5). Freeze MVP scope and run the end-to-end demo checklist to protect release readiness; the AI evaluation baseline remains the enabling quality action.",
+            "competency": "Role: AI / Data / Backend | Owner: Nguyễn Quý Dũng | Current/nearest level: L2 — AI Practitioner | Next competency: AI evaluation / quality evaluation | 30-day practice: build golden cases for cleaning + matching and run regression evaluation before each milestone/release candidate.",
             "growth": [
-                ["No agreed evaluation baseline", "Confirm a golden test set and run it before each release", "NEEDS TEAM INPUT", "30 days after confirmation", "Saved eval result linked to a release"],
-                ["Current goal is not shared", "Write one measurable 1-3 month goal and acceptance signal", "NEEDS TEAM INPUT", "Within 7 days of confirmation", "Goal appears in JOB.md and README"],
-                ["Stakeholder feedback path is unknown", "Run one documented feedback checkpoint with the selected representative", "NEEDS TEAM INPUT", "Within 30 days of confirmation", "Feedback note and decision are recorded"],
+                {"problem": "AI quality needs a repeatable acceptance baseline.", "action": "Build a golden test set and evaluation checklist for cleaning + matching.", "owner": "Nguyễn Quý Dũng", "deadline": "14 days after confirmation (2026-09-12)", "completion_signal": "Golden cases are stored in project artefacts and a reproducible evaluation report is linked to a release candidate."},
+                {"problem": "The project design needs a demonstrable vertical slice.", "action": "Freeze MVP scope and complete an end-to-end demo script from CSV upload through cleaning, review, matching, masked result, and audit flow.", "owner": "Nguyễn Quang Huy", "deadline": "21 days after confirmation (2026-09-19)", "completion_signal": "The demo checklist runs end-to-end against the confirmed acceptance criteria."},
+                {"problem": "Stakeholder interest must become actionable feedback.", "action": "Prepare a review package and hold a checkpoint with priority stakeholders, recording issues, decisions, and next actions.", "owner": "Trần Thị Kiều Trang", "deadline": "30 days after confirmation (2026-09-28)", "completion_signal": "A review note contains feedback, decisions, and the next action."},
             ],
         },
         "confirmation_gate": {
-            "title": "TEAM CONFIRMATION REQUIRED",
-            "body": "1. DataUnifi current goal: NEEDS TEAM INPUT\n\n2. Proposed RACI: confirm or edit the proposed matrix.\n\n3. Team Health: Huy: NEEDS TEAM INPUT | Trang: NEEDS TEAM INPUT | Dũng: NEEDS TEAM INPUT\n\n4. Competency / Growth commitments: NEEDS TEAM INPUT\n\nReply: YES or edit the lines that need to change.",
+            "title": "TEAM CONFIRMED",
+            "body": "All required Day 27 team inputs were confirmed by team/user on 2026-08-29: goal, stakeholder classification, six-task RACI, Embedded architecture, individual evidence artefacts, twelve health scores, L2 competency, and three growth commitments.",
         },
     }
 
 
 def validate_raci(rows: list[dict[str, Any]]) -> list[str]:
     errors: list[str] = []
+    allowed_columns = {"task", "Huy", "Trang", "Dũng", "Stakeholder"}
     for row in rows:
-        accountable = sum(1 for member in ("Huy", "Trang", "Dung") if row.get(member) == "A")
-        responsible = any("R" in str(row.get(member, "")) for member in ("Huy", "Trang", "Dung"))
         task = str(row.get("task", "Unnamed task"))
+        for column in row:
+            if column not in allowed_columns:
+                errors.append(f"{task}: unrecognized RACI column '{column}'")
+        codes = {
+            member: {code.strip() for code in str(row.get(member, "")).split("/")}
+            for member in ("Huy", "Trang", "Dũng")
+        }
+        accountable = sum("A" in codes[member] for member in codes)
+        responsible = any("R" in codes[member] for member in codes)
         if accountable != 1:
             errors.append(f"{task}: expected exactly one A, found {accountable}")
         if not responsible:
@@ -287,7 +343,6 @@ def _styles() -> dict[str, ParagraphStyle]:
         "table_cell_center": ParagraphStyle("table_cell_center", fontName=REGULAR_FONT, fontSize=7.2, leading=8.5, textColor=INK, alignment=TA_CENTER),
         "card_title": ParagraphStyle("card_title", fontName=BOLD_FONT, fontSize=9, leading=10.6, textColor=NAVY, alignment=TA_LEFT),
         "card_title_white": ParagraphStyle("card_title_white", fontName=BOLD_FONT, fontSize=9, leading=10.6, textColor=WHITE, alignment=TA_LEFT),
-        "callout": ParagraphStyle("callout", fontName=REGULAR_FONT, fontSize=7.3, leading=8.8, textColor=INK, alignment=TA_LEFT),
         "gate": ParagraphStyle("gate", fontName=REGULAR_FONT, fontSize=7.0, leading=8.1, textColor=INK, alignment=TA_LEFT),
     }
 
@@ -304,14 +359,14 @@ def draw_paragraph(canvas: Canvas, text: str, x: float, top: float, width: float
     return paragraph_height
 
 
-def draw_card(canvas: Canvas, x: float, top: float, width: float, height: float, title: str, body: str, styles: dict[str, ParagraphStyle], fill=PAPER, accent=TEAL, body_style="body") -> None:
+def draw_card(canvas: Canvas, x: float, top: float, width: float, height: float, title: str, body: str, styles: dict[str, ParagraphStyle], fill=PAPER, accent=TEAL, body_style="body", title_style="card_title") -> None:
     canvas.setFillColor(fill)
     canvas.setStrokeColor(GRID)
     canvas.setLineWidth(0.7)
     canvas.roundRect(x, top - height, width, height, 5, fill=1, stroke=1)
     canvas.setFillColor(accent)
     canvas.roundRect(x, top - 4, width, 4, 5, fill=1, stroke=0)
-    draw_paragraph(canvas, title, x + 10, top - 12, width - 20, 18, styles["card_title"])
+    draw_paragraph(canvas, title, x + 10, top - 12, width - 20, 18, styles[title_style])
     draw_paragraph(canvas, body, x + 10, top - 34, width - 20, height - 42, styles[body_style])
 
 
@@ -368,7 +423,7 @@ def draw_page_frame(canvas: Canvas, content: dict[str, Any], page_no: int, style
     canvas.setLineWidth(0.6)
     canvas.line(MARGIN, 29, PAGE_W - MARGIN, 29)
     draw_paragraph(canvas, "DataUnifi | Team 42", MARGIN, 20, 140, 10, styles["small_muted"])
-    draw_paragraph(canvas, content["status"], PAGE_W / 2 - 125, 20, 250, 10, ParagraphStyle("footer_status", fontName=BOLD_FONT, fontSize=6.7, leading=8, textColor=CORAL, alignment=TA_CENTER))
+    draw_paragraph(canvas, content["status"], PAGE_W / 2 - 125, 20, 250, 10, ParagraphStyle("footer_status", fontName=BOLD_FONT, fontSize=6.7, leading=8, textColor=TEAL, alignment=TA_CENTER))
     draw_paragraph(canvas, f"{page_no} / 4", PAGE_W - MARGIN - 42, 20, 42, 10, ParagraphStyle("footer_page", fontName=BOLD_FONT, fontSize=7, leading=8, textColor=MUTED, alignment=TA_RIGHT))
     return PAGE_H - 88
 
@@ -427,13 +482,13 @@ def draw_page_1(canvas: Canvas, content: dict[str, Any], styles: dict[str, Parag
     top = draw_page_frame(canvas, content, 1, styles)
     draw_matrix(canvas, MARGIN, top, 218, 151, styles)
     x_table = MARGIN + 230
-    stakeholder_data = [["Stakeholder candidate", "Influence", "Interest", "Quadrant", "Stance", "Evidence / reason"]]
+    stakeholder_data = [["Stakeholder", "Influence", "Interest", "Quadrant", "Stance", "Evidence / reason"]]
     for row in content["stakeholders"]:
         stakeholder_data.append([row[key] for key in ("stakeholder", "influence", "interest", "quadrant", "stance", "evidence")])
     table_height = draw_table(canvas, stakeholder_data, x_table, top, [116, 55, 55, 66, 61, CONTENT_W - 230 - 353], styles, font_style="tiny")
     canvas.setFillColor(MUTED)
     canvas.setFont(REGULAR_FONT, 6.9)
-    canvas.drawString(MARGIN + 4, top - 165, "Quadrant labels and stance are not interchangeable. Every row is unconfirmed.")
+    canvas.drawString(MARGIN + 4, top - 165, content["matrix"]["note"])
     badge_x = MARGIN + 4
     for label, fill in [("Champion", GOLD_LIGHT), ("Blocker", CORAL_LIGHT), ("Supporter", TEAL_LIGHT), ("Bystander", BLUE_LIGHT)]:
         badge_x += draw_badge(canvas, label, badge_x, top - 189, fill) + 5
@@ -442,8 +497,8 @@ def draw_page_1(canvas: Canvas, content: dict[str, Any], styles: dict[str, Parag
     card_w = (CONTENT_W - card_gap) / 2
     leverage = "\n".join(content["matrix"]["leverage"])
     persuade = "\n".join(content["matrix"]["persuade"])
-    draw_card(canvas, MARGIN, cards_top, card_w, 56, "Leverage: 2 strong-support candidates", leverage, styles, fill=TEAL_LIGHT, accent=TEAL, body_style="tiny")
-    draw_card(canvas, MARGIN + card_w + card_gap, cards_top, card_w, 56, "Persuade / risk-reduce: 2 candidates", persuade, styles, fill=CORAL_LIGHT, accent=CORAL, body_style="tiny")
+    draw_card(canvas, MARGIN, cards_top, card_w, 56, "Leverage: 2 priority stakeholders", leverage, styles, fill=TEAL_LIGHT, accent=TEAL, body_style="tiny")
+    draw_card(canvas, MARGIN + card_w + card_gap, cards_top, card_w, 56, "Persuade / de-risk: 2 priority stakeholders", persuade, styles, fill=CORAL_LIGHT, accent=CORAL, body_style="tiny")
     action_top = cards_top - 67
     canvas.setFillColor(NAVY)
     canvas.roundRect(MARGIN, action_top - 83, CONTENT_W, 83, 5, fill=1, stroke=0)
@@ -466,7 +521,7 @@ def draw_page_2(canvas: Canvas, content: dict[str, Any], styles: dict[str, Parag
     left_w = 392
     right_w = CONTENT_W - left_w - gap
     pitch = content["pitch"]
-    draw_card(canvas, MARGIN, top, left_w, 202, "CONCLUSION", pitch["conclusion"], styles, fill=WHITE, accent=TEAL, body_style="body")
+    draw_card(canvas, MARGIN, top, left_w, 230, "CONCLUSION FIRST", pitch["conclusion"], styles, fill=WHITE, accent=TEAL, body_style="body")
     draw_paragraph(canvas, "Audience: " + pitch["audience"], MARGIN + 10, top - 61, left_w - 20, 16, styles["label"])
     draw_paragraph(canvas, "2-3 REASONS", MARGIN + 10, top - 86, left_w - 20, 13, styles["label"])
     draw_bullets(canvas, pitch["reasons"], MARGIN + 10, top - 100, left_w - 20, styles, gap=3)
@@ -475,13 +530,13 @@ def draw_page_2(canvas: Canvas, content: dict[str, Any], styles: dict[str, Parag
     draw_paragraph(canvas, "SMALL ASK", MARGIN + 10, top - 194, left_w - 20, 13, styles["label"])
     draw_paragraph(canvas, pitch["ask"], MARGIN + 10, top - 206, left_w - 20, 36, styles["tiny"])
     rx = MARGIN + left_w + gap
-    draw_card(canvas, rx, top, right_w, 202, "OBJECTION + RESPONSE", pitch["objection"], styles, fill=CORAL_LIGHT, accent=CORAL, body_style="body")
+    draw_card(canvas, rx, top, right_w, 230, "OBJECTION + RESPONSE", pitch["objection"], styles, fill=CORAL_LIGHT, accent=CORAL, body_style="body")
     draw_paragraph(canvas, pitch["response"], rx + 10, top - 66, right_w - 20, 75, styles["body"])
-    draw_card(canvas, rx + 10, top - 123, right_w - 20, 60, "Risk-reduction logic", "Proposed limited checkpoint: named acceptance criteria, documented result, then a deliberate go / revise decision.", styles, fill=WHITE, accent=GOLD, body_style="tiny")
-    raci_top = top - 220
-    draw_paragraph(canvas, "PROPOSED RACI - exactly one A per task; team confirmation required", MARGIN, raci_top, CONTENT_W, 17, styles["card_title"])
-    raci_data = [["Task", "Huy", "Trang", "Dung", "Stakeholder"]]
-    raci_data.extend([[row[key] for key in ("task", "Huy", "Trang", "Dung", "Stakeholder")] for row in content["raci"]])
+    draw_card(canvas, rx + 10, top - 142, right_w - 20, 68, "Risk-reduction logic", "Controlled scope, named acceptance criteria, documented result, then a deliberate go / revise decision.", styles, fill=WHITE, accent=GOLD, body_style="tiny")
+    raci_top = top - 250
+    draw_paragraph(canvas, "RACI - one A and at least one R per task", MARGIN, raci_top, CONTENT_W, 17, styles["card_title"])
+    raci_data = [["Task", "Huy", "Trang", "Dũng", "Stakeholder"]]
+    raci_data.extend([[row[key] for key in ("task", "Huy", "Trang", "Dũng", "Stakeholder")] for row in content["raci"]])
     draw_table(canvas, raci_data, MARGIN, raci_top - 20, [300, 43, 48, 45, CONTENT_W - 436], styles)
     canvas.setFillColor(MUTED)
     canvas.setFont(REGULAR_FONT, 6.8)
@@ -499,17 +554,14 @@ def draw_page_3(canvas: Canvas, content: dict[str, Any], styles: dict[str, Parag
     role_w = CONTENT_W - arch_w - gap
     draw_card(canvas, role_x, top, role_w, 111, "CORE ROLES - needed now", "\n".join("- " + item for item in design["core"]), styles, fill=WHITE, accent=TEAL, body_style="small")
     roles_top = top - 121
-    draw_card(canvas, role_x, roles_top, role_w, 86, "EXTENDED ROLES - only when scale requires", "\n".join("- " + item for item in design["extended"]), styles, fill=LAVENDER, accent=GOLD, body_style="small")
+    draw_card(canvas, role_x, roles_top, role_w, 86, "EXTENDED ROLES - when scaling", "\n".join("- " + item for item in design["extended"]), styles, fill=LAVENDER, accent=GOLD, body_style="small")
     gap_top = roles_top - 96
     draw_paragraph(canvas, "CAPABILITY GAPS + PRIORITY RESOURCING", MARGIN, gap_top, CONTENT_W, 16, styles["card_title"])
-    gap_data = [["Capability gap", "Hire / Outsource / Partner", "Why", "When needed"]]
-    gap_data.extend([[row["gap"], row["route"], row["why"], row["when"]] for row in design["gaps"]])
-    draw_table(canvas, gap_data, MARGIN, gap_top - 19, [210, 125, 248, CONTENT_W - 583], styles)
-    squad_top = gap_top - 103
-    draw_card(canvas, MARGIN, squad_top, CONTENT_W, 82, "SQUAD GOAL", design["squad_goal"], styles, fill=NAVY, accent=TEAL, body_style="body_white")
-    canvas.setFillColor(TEAL_LIGHT)
-    canvas.setFont(BOLD_FONT, 7)
-    canvas.drawString(MARGIN + 10, squad_top - 66, "The sentence is a proposal until the team confirms the use case and target state.")
+    gap_data = [["Capability gap", "Route", "Partner", "Why", "When needed"]]
+    gap_data.extend([[row["gap"], row["route"], row["partner"], row["why"], row["when"]] for row in design["gaps"]])
+    draw_table(canvas, gap_data, MARGIN, gap_top - 19, [155, 110, 150, 230, CONTENT_W - 645], styles, font_style="tiny")
+    squad_top = gap_top - 112
+    draw_card(canvas, MARGIN, squad_top, CONTENT_W, 82, "SQUAD GOAL", design["squad_goal"], styles, fill=NAVY, accent=TEAL, body_style="body_white", title_style="card_title_white")
 
 
 def draw_page_4(canvas: Canvas, content: dict[str, Any], styles: dict[str, ParagraphStyle]) -> None:
@@ -521,18 +573,19 @@ def draw_page_4(canvas: Canvas, content: dict[str, Any], styles: dict[str, Parag
     draw_card(canvas, MARGIN, priority_top, 365, 78, "PRIORITY ISSUE", health["priority"], styles, fill=CORAL_LIGHT, accent=CORAL, body_style="small")
     draw_card(canvas, MARGIN + 375, priority_top, CONTENT_W - 375, 78, "COMPETENCY", health["competency"], styles, fill=GOLD_LIGHT, accent=GOLD, body_style="small")
     growth_top = priority_top - 89
-    draw_paragraph(canvas, "GROWTH PLAN - 30 DAYS / PROPOSED", MARGIN, growth_top, CONTENT_W, 16, styles["card_title"])
-    growth_data = [["Problem", "30-day action", "Owner", "Deadline", "Completion signal"]] + health["growth"]
-    growth_height = draw_table(canvas, growth_data, MARGIN, growth_top - 18, [145, 255, 80, 93, CONTENT_W - 573], styles, font_style="tiny")
+    draw_paragraph(canvas, "GROWTH PLAN - 30 DAYS", MARGIN, growth_top, CONTENT_W, 16, styles["card_title"])
+    growth_data = [["Problem", "30-day action", "Owner", "Deadline", "Completion signal"]]
+    growth_data.extend([[row[key] for key in ("problem", "action", "owner", "deadline", "completion_signal")] for row in health["growth"]])
+    growth_height = draw_table(canvas, growth_data, MARGIN, growth_top - 18, [145, 245, 90, 100, CONTENT_W - 580], styles, font_style="tiny")
     gate_top = growth_top - growth_height - 18
-    gate_h = 118
+    gate_h = 96
     canvas.setFillColor(GOLD_LIGHT)
     canvas.setStrokeColor(GOLD)
     canvas.setLineWidth(0.8)
     canvas.roundRect(MARGIN, gate_top - gate_h, CONTENT_W, gate_h, 5, fill=1, stroke=1)
     canvas.setFillColor(GOLD)
     canvas.roundRect(MARGIN, gate_top - 5, CONTENT_W, 5, 5, fill=1, stroke=0)
-    draw_paragraph(canvas, content["confirmation_gate"]["title"], MARGIN + 10, gate_top - 14, CONTENT_W - 20, 16, styles["card_title"])
+    draw_paragraph(canvas, "CONFIRMATION RECORD", MARGIN + 10, gate_top - 14, CONTENT_W - 20, 16, styles["card_title"])
     draw_paragraph(canvas, content["confirmation_gate"]["body"], MARGIN + 10, gate_top - 35, CONTENT_W - 20, gate_h - 42, styles["gate"])
 
 

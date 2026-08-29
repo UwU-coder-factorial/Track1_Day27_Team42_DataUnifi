@@ -131,7 +131,7 @@ def test_required_headings_are_stable():
     ]
 ```
 
-The RACI test must count literal `A` values across Huy, Trang, and Dung and reject rows with zero or multiple `A` values.
+The RACI test must count literal `A` values across Huy, Trang, and Dũng and reject rows with zero or multiple `A` values.
 
 - [ ] **Step 2: Run the tests and confirm they fail for the intended missing module.**
 
@@ -176,7 +176,7 @@ git commit -m "test: define DataUnifi submission content contract"
 - five proposed RACI rows for actual near-term work, exactly one `A` per row, and a stakeholder column marked `NEEDS TEAM INPUT`;
 - one proposed architecture labeled `PROPOSED - NEEDS TEAM INPUT`, with rationale limited to the known three-person team and unknown project stage;
 - Core and Extended capability rows, one to three capability-gap rows with Hire/Outsource/Partner alternatives marked as proposals, and one squad-goal sentence marked for confirmation;
-- the four team-health dimensions with Huy, Trang, and Dung values all set to `NEEDS TEAM INPUT`, not numeric scores;
+- the four team-health dimensions with Huy, Trang, and Dũng values all set to `NEEDS TEAM INPUT`, not numeric scores;
 - one competency entry and at most three measurable growth-action rows, each explicitly pending team confirmation;
 - exactly one confirmation gate object with the required title and all missing decision fields.
 
