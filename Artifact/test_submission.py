@@ -70,6 +70,7 @@ def test_final_stakeholders_are_concrete_and_complete():
     assert len(stakeholders) >= 6
     for row in stakeholders:
         assert all(row.get(field) for field in ("stakeholder", "influence", "interest", "quadrant", "stance", "evidence"))
+        assert row["influence"] in {"High", "Low"}
         assert not any(marker in row["stakeholder"] for marker in ("Proposed", "candidate", "unknown"))
 
 
@@ -190,5 +191,14 @@ def test_pdf_builder_writes_four_pages_with_required_headings():
             text = "\n".join(page.get_text() for page in document)
             assert len(document) == 4
             assert all(heading in text for heading in generator.required_headings())
+            markers = (
+                "NEEDS " + "TEAM INPUT",
+                "PRO" + "POSED",
+                "T" + "BD",
+                "TO" + "DO",
+                "TEAM " + "CONFIRMATION REQUIRED",
+                "AWAITING " + "MEMBER CONFIRMATION",
+            )
+            assert not any(marker in text for marker in markers)
     finally:
         output.unlink(missing_ok=True)

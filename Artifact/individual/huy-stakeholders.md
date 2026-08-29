@@ -9,5 +9,5 @@ Reviewed and confirmed by Nguyễn Quang Huy for the Team 42 Day 27 submission.
 | Phòng AI | Low | High | Ủng hộ | Can review cleaning quality, matching logic, and evaluation criteria. |
 | Phòng Phần mềm | Low | High | Trung lập | Can review integration, deployment, access controls, and maintainability. |
 | Nguyễn Quang Huy | High | High | Ủng hộ | Owns product direction, integration, and release coordination. |
-| Trần Thị Kiều Trang | Execution | High | Ủng hộ | Owns UX, frontend workflow, and stakeholder communication. |
-| Nguyễn Quý Dũng | Execution | High | Ủng hộ | Owns AI, data, and backend work for the MVP. |
+| Trần Thị Kiều Trang | High | High | Ủng hộ | Owns UX, frontend workflow, and stakeholder communication. |
+| Nguyễn Quý Dũng | High | High | Ủng hộ | Owns AI, data, and backend work for the MVP. |

@@ -50,8 +50,8 @@ Trong 1–3 tháng tới, Team 42 hoàn thiện MVP DataUnifi có thể demo end
 | Phòng AI | Low | High | Supporter | Ủng hộ |
 | Phòng Phần mềm | Low | High | Supporter | Trung lập |
 | Nguyễn Quang Huy | High | High | Champion | Ủng hộ |
-| Trần Thị Kiều Trang | Execution | High | Supporter | Ủng hộ |
-| Nguyễn Quý Dũng | Execution | High | Supporter | Ủng hộ |
+| Trần Thị Kiều Trang | High | High | Champion | Ủng hộ |
+| Nguyễn Quý Dũng | High | High | Champion | Ủng hộ |
 
 Priority leverage:
 
