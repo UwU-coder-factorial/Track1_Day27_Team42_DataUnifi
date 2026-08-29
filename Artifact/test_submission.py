@@ -63,3 +63,13 @@ def test_required_headings_are_stable():
         "Team Health",
         "Growth Plan",
     ]
+
+
+def test_pdf_builder_writes_the_requested_output():
+    generator = _generator()
+    output = ARTIFACT_DIR / ".test_submission_output.pdf"
+    try:
+        assert generator.build_pdf(output) == output
+        assert output.exists()
+    finally:
+        output.unlink(missing_ok=True)
