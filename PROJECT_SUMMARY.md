@@ -1,8 +1,10 @@
-# Tóm tắt dự án DataUnify
+# Tóm tắt dự án DataUnifi
+
+> Project evidence note: this document records the confirmed DataUnifi project design and intended workflows. It does not claim production deployment, measured accuracy, user validation, or business impact.
 
 ## 1. Dự án là gì?
 
-**DataUnify** là một nền tảng web đa tenant (multi-tenant) ứng dụng AI để hỗ trợ doanh nghiệp **làm sạch, chuẩn hóa và ghép nối hồ sơ khách hàng** từ nhiều nguồn dữ liệu khác nhau.
+**DataUnifi** là một nền tảng web đa tenant (multi-tenant) ứng dụng AI để hỗ trợ doanh nghiệp **làm sạch, chuẩn hóa và ghép nối hồ sơ khách hàng** từ nhiều nguồn dữ liệu khác nhau.
 
 Mỗi công ty, phòng ban hoặc đơn vị nghiệp vụ được xem là một tenant độc lập. Dữ liệu gốc của từng tenant được lưu và xử lý riêng; hệ thống không gom toàn bộ dữ liệu thật của các bên vào một kho dữ liệu chung. AI đóng vai trò đề xuất phương án xử lý, còn những quyết định quan trọng liên quan đến thay đổi hoặc chia sẻ dữ liệu vẫn được con người kiểm tra và phê duyệt.
 
@@ -22,7 +24,7 @@ Trong thực tế, dữ liệu khách hàng thường được lưu ở nhiều 
 
 Việc xử lý thủ công các vấn đề này tốn thời gian, dễ sai sót và khó mở rộng khi dữ liệu lớn. Đồng thời, nếu chia sẻ trực tiếp dữ liệu giữa nhiều công ty hoặc phòng ban thì có nguy cơ làm lộ thông tin cá nhân và dữ liệu nhạy cảm.
 
-DataUnify được xây dựng nhằm:
+DataUnifi được xây dựng nhằm:
 
 - Giảm thời gian làm sạch và chuẩn hóa dữ liệu thủ công.
 - Nâng cao chất lượng dữ liệu trước khi phân tích hoặc đối soát.
@@ -31,7 +33,7 @@ DataUnify được xây dựng nhằm:
 - Đảm bảo thao tác truy cập, phê duyệt và xuất dữ liệu đều có thể truy vết.
 - Hạn chế ghép nhầm hồ sơ bằng cơ chế chấm điểm, vùng cần review và phê duyệt của con người.
 
-DataUnify không nhằm thay thế CRM/ERP hiện có và cũng không tự động xây dựng một hồ sơ khách hàng hợp nhất duy nhất. Hệ thống hoạt động như một lớp hỗ trợ làm sạch, đối soát và liên kết dữ liệu có kiểm soát.
+DataUnifi không nhằm thay thế CRM/ERP hiện có và cũng không tự động xây dựng một hồ sơ khách hàng hợp nhất duy nhất. Hệ thống hoạt động như một lớp hỗ trợ làm sạch, đối soát và liên kết dữ liệu có kiểm soát.
 
 ## 3. Dự án thực hiện điều đó như thế nào?
 
@@ -143,4 +145,4 @@ Audit Log giúp kiểm tra lịch sử xử lý, điều tra sự cố và chứ
 - **Database:** MongoDB lưu tài khoản, tenant, dataset, workflow state, link record và audit log.
 - **Deployment:** Docker Compose dùng để chạy ứng dụng và MongoDB đồng bộ trong môi trường local hoặc demo.
 
-Tóm lại, DataUnify kết hợp **AI hỗ trợ ra quyết định**, **con người phê duyệt**, **xử lý xác định có thể kiểm chứng** và **kiểm soát truy cập theo tenant** để làm sạch và ghép nối dữ liệu khách hàng một cách an toàn.
+Tóm lại, DataUnifi kết hợp **AI hỗ trợ ra quyết định**, **con người phê duyệt**, **xử lý xác định có thể kiểm chứng** và **kiểm soát truy cập theo tenant** để làm sạch và ghép nối dữ liệu khách hàng một cách an toàn.
