@@ -375,7 +375,8 @@ def draw_page_frame(canvas: Canvas, content: dict[str, Any], page_no: int, style
 
 def draw_matrix(canvas: Canvas, x: float, top: float, width: float, height: float, styles: dict[str, ParagraphStyle]) -> None:
     draw_paragraph(canvas, "Influence x Interest matrix", x, top, width, 15, styles["card_title"])
-    mx, my, mw, mh = x + 22, top - 30, width - 40, height - 45
+    mx, mw, mh = x + 22, width - 40, height - 45
+    my = top - 30 - mh
     canvas.setFillColor(TEAL_LIGHT)
     canvas.rect(mx, my, mw / 2, mh / 2, fill=1, stroke=0)
     canvas.setFillColor(CORAL_LIGHT)
@@ -456,7 +457,7 @@ def draw_page_1(canvas: Canvas, content: dict[str, Any], styles: dict[str, Parag
         canvas.setFillColor(NAVY)
         canvas.setFont(BOLD_FONT, 7)
         canvas.drawCentredString(ax + 7, action_y - 6.5, str(index))
-        draw_paragraph(canvas, action, ax + 19, action_y, action_w - 19, 47, styles["tiny"])
+        draw_paragraph(canvas, action, ax + 19, action_y, action_w - 19, 47, styles["body_white"])
 
 
 def draw_page_2(canvas: Canvas, content: dict[str, Any], styles: dict[str, ParagraphStyle]) -> None:
@@ -523,8 +524,8 @@ def draw_page_4(canvas: Canvas, content: dict[str, Any], styles: dict[str, Parag
     draw_paragraph(canvas, "GROWTH PLAN - 30 DAYS / PROPOSED", MARGIN, growth_top, CONTENT_W, 16, styles["card_title"])
     growth_data = [["Problem", "30-day action", "Owner", "Deadline", "Completion signal"]] + health["growth"]
     growth_height = draw_table(canvas, growth_data, MARGIN, growth_top - 18, [145, 255, 80, 93, CONTENT_W - 573], styles, font_style="tiny")
-    gate_top = growth_top - growth_height - 12
-    gate_h = 124
+    gate_top = growth_top - growth_height - 18
+    gate_h = 118
     canvas.setFillColor(GOLD_LIGHT)
     canvas.setStrokeColor(GOLD)
     canvas.setLineWidth(0.8)
