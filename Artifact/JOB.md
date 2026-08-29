@@ -149,11 +149,11 @@ The content contract was updated from the pre-confirmation state to the confirme
 | Gate 2 — Pitch & RACI | PASS | Conclusion-first pitch, evidence boundary, small ask, objection response, six tasks, and one A/task are present. |
 | Gate 3 — AI Team | PASS | Embedded architecture, rationale, roles, three capability gaps, routes, partners, timing, and squad goal are present. |
 | Gate 4 — Health & Growth | PASS | Twelve scores, derived summary, L2 competency, next competency, practice, and three complete growth actions are present. |
-| Gate 5 — Submission | VERIFYING | Required root files, one four-page PDF, local QA, and remote main verification are being checked. |
+| Gate 5 — Submission | PASS (local) | Required root files, one four-page PDF, local QA, and branch artefact verification are complete; remote main verification is the post-merge step. |
 
 | Check | Result | Evidence |
 | --- | --- | --- |
-| Content contract tests | PASS | `python -m pytest Artifact/test_submission.py -q` — 13 passed before final PDF rerun. |
+| Content contract tests | PASS | `python -m pytest Artifact/test_submission.py -q` — 15 passed after final source and PDF-contract updates. |
 | PDF generation | PASS | `python Artifact/generate_submission.py` exited 0 and wrote the required root PDF. |
 | PDF page count | PASS | PyMuPDF reported 4 pages. |
 | Required headings | PASS | PyMuPDF extracted all seven required headings. |
@@ -161,10 +161,10 @@ The content contract was updated from the pre-confirmation state to the confirme
 | Placeholder scan | PASS | No unresolved submission markers in README, JOB, PROJECT_SUMMARY, Artifact/individual, generator, or final PDF text. |
 | Visual PDF QA | PASS | Four rendered pages inspected for clipping, overlap, glyphs, table collisions, and footer overlap. |
 | Cross-page consistency | PASS | Page 1 stakeholders align with Page 2 pitch/RACI; Page 3 evaluation gap aligns with Page 4 priority/growth; owners align with RACI. |
-| Remote main verified | NOT YET | Remote verification follows push and merge. |
+| Remote main verified | PENDING MERGE | Remote verification follows the clean PR merge. |
 
-Overall status: READY FOR PR
+Overall status: READY FOR MERGE
 
 Artifact operation marker: unavailable because `container_tools/mark_artifact_operation_started.mjs` is not present in the repository; the required command was attempted once and the supported generator was used.
 Main SHA: will be recorded after merge.
-PR: will be recorded after PR creation.
+PR: #1 — https://github.com/UwU-coder-factorial/Track1_Day27_Team42_DataUnifi/pull/1

@@ -50,6 +50,25 @@ def required_headings() -> list[str]:
     ]
 
 
+def summarize_health(scores: dict[str, dict[str, int]]) -> dict[str, Any]:
+    dimensions = ("AI Quality", "Progress", "Team Morale", "Shipping Speed")
+    averages = {
+        dimension: round(sum(row[dimension] for row in scores.values()) / len(scores), 2)
+        for dimension in dimensions
+    }
+    ranges = {
+        dimension: max(row[dimension] for row in scores.values()) - min(row[dimension] for row in scores.values())
+        for dimension in dimensions
+    }
+    largest_range = max(ranges.values())
+    largest_dimensions = [dimension for dimension in dimensions if ranges[dimension] == largest_range]
+    return {
+        "averages": averages,
+        "lowest_dimension": min(dimensions, key=averages.get),
+        "largest_disagreement": " and ".join(largest_dimensions) + f" (range {largest_range})",
+    }
+
+
 def build_content() -> dict[str, Any]:
     stakeholders = [
         {
@@ -160,22 +179,18 @@ def build_content() -> dict[str, Any]:
         "Trang": {"AI Quality": 4, "Progress": 4, "Team Morale": 5, "Shipping Speed": 3},
         "Dũng": {"AI Quality": 4, "Progress": 3, "Team Morale": 4, "Shipping Speed": 3},
     }
-    dimensions = ("AI Quality", "Progress", "Team Morale", "Shipping Speed")
-    averages = {
-        dimension: round(sum(row[dimension] for row in scores.values()) / len(scores), 2)
-        for dimension in dimensions
-    }
-    ranges = {
-        dimension: max(row[dimension] for row in scores.values()) - min(row[dimension] for row in scores.values())
-        for dimension in dimensions
-    }
-    largest_range = max(ranges.values())
-    largest_dimensions = [dimension for dimension in dimensions if ranges[dimension] == largest_range]
-    largest_disagreement = " and ".join(largest_dimensions) + f" (range {largest_range})"
+    health_summary = summarize_health(scores)
+    dimensions = tuple(health_summary["averages"])
     health_rows = [
-        [dimension, scores["Huy"][dimension], scores["Trang"][dimension], scores["Dũng"][dimension], f"Average {averages[dimension]:.2f}/5"]
+        [dimension, scores["Huy"][dimension], scores["Trang"][dimension], scores["Dũng"][dimension], f"Average {health_summary['averages'][dimension]:.2f}/5"]
         for dimension in dimensions
     ]
+    priority = (
+        f"Priority for next milestone: {health_summary['lowest_dimension']} is lowest "
+        f"(average {health_summary['averages'][health_summary['lowest_dimension']]:.2f}/5). "
+        "Freeze MVP scope and run the end-to-end demo checklist to protect release readiness; "
+        "the AI evaluation baseline remains the enabling quality action."
+    )
 
     return {
         "project": "DataUnifi",
@@ -268,12 +283,8 @@ def build_content() -> dict[str, Any]:
         "health": {
             "scores": scores,
             "rows": health_rows,
-            "summary": {
-                "averages": averages,
-                "lowest_dimension": "Shipping Speed",
-                "largest_disagreement": largest_disagreement,
-            },
-            "priority": "Priority for next milestone: Shipping Speed is lowest (average 3.00/5). Freeze MVP scope and run the end-to-end demo checklist to protect release readiness; the AI evaluation baseline remains the enabling quality action.",
+            "summary": health_summary,
+            "priority": priority,
             "competency": "Role: AI / Data / Backend | Owner: Nguyễn Quý Dũng | Current/nearest level: L2 — AI Practitioner | Next competency: AI evaluation / quality evaluation | 30-day practice: build golden cases for cleaning + matching and run regression evaluation before each milestone/release candidate.",
             "growth": [
                 {"problem": "AI quality needs a repeatable acceptance baseline.", "action": "Build a golden test set and evaluation checklist for cleaning + matching.", "owner": "Nguyễn Quý Dũng", "deadline": "14 days after confirmation (2026-09-12)", "completion_signal": "Golden cases are stored in project artefacts and a reproducible evaluation report is linked to a release candidate."},

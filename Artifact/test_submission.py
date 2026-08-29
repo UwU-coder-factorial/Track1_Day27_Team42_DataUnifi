@@ -109,10 +109,21 @@ def test_team_health_summary_is_derived_from_confirmed_scores():
     assert summary["largest_disagreement"] == "Progress and Team Morale (range 1)"
 
 
+def test_health_summary_calculates_lowest_dimension_and_largest_range():
+    summary = _generator().summarize_health({
+        "Huy": {"AI Quality": 2, "Progress": 4, "Team Morale": 1, "Shipping Speed": 4},
+        "Trang": {"AI Quality": 3, "Progress": 4, "Team Morale": 5, "Shipping Speed": 4},
+        "Dũng": {"AI Quality": 2, "Progress": 4, "Team Morale": 3, "Shipping Speed": 4},
+    })
+    assert summary["averages"] == {"AI Quality": 2.33, "Progress": 4.0, "Team Morale": 3.0, "Shipping Speed": 4.0}
+    assert summary["lowest_dimension"] == "AI Quality"
+    assert summary["largest_disagreement"] == "Team Morale (range 4)"
+
+
 def test_raci_has_one_accountable_and_at_least_one_responsible_per_task():
     generator = _generator()
     content = generator.build_content()
-    assert 4 <= len(content["raci"]) <= 6
+    assert len(content["raci"]) == 6
     assert generator.validate_raci(content["raci"]) == []
 
 
@@ -164,5 +175,20 @@ def test_pdf_builder_writes_the_requested_output():
     try:
         assert generator.build_pdf(output) == output
         assert output.exists()
+    finally:
+        output.unlink(missing_ok=True)
+
+
+def test_pdf_builder_writes_four_pages_with_required_headings():
+    generator = _generator()
+    output = ARTIFACT_DIR / ".test_submission_contract.pdf"
+    try:
+        generator.build_pdf(output)
+        import pymupdf
+
+        with pymupdf.open(output) as document:
+            text = "\n".join(page.get_text() for page in document)
+            assert len(document) == 4
+            assert all(heading in text for heading in generator.required_headings())
     finally:
         output.unlink(missing_ok=True)
