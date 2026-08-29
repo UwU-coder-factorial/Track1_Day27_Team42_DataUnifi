@@ -70,12 +70,28 @@ or edit the lines that need to change.
 | Gate 4 - Health & Growth | PARTIAL | Scores and commitments require individual inputs |
 | Gate 5 - Submission | PARTIAL | PDF and remote verification are pending |
 
+## Local verification log
+
+Verified on 2026-08-29 from the current checkout:
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| Content contract tests | PASS | `6 passed in 0.20s` |
+| PDF generation | PASS | Generator exited 0 and wrote the required root PDF |
+| PDF page count | PASS | `PAGE_COUNT = 4` |
+| Required headings | PASS | `MISSING_HEADINGS = []` for all seven headings |
+| Visual PDF check | PASS | All four rendered pages inspected; no clipping, overlap, broken table, or unreadable body text found |
+| Generic unfinished-marker scan | PASS | No forbidden generic markers found outside ignored render intermediates |
+| Submission PDF count | PASS | Exactly one root PDF: `Day27_AI-Team-Lab_Team42.pdf` |
+| Cross-page consistency | PARTIAL | Proposed links are structurally aligned; factual stakeholder, goal, health, and owner inputs are still missing |
+| Remote main verification | PENDING | Push and remote tree check have not run yet |
+
 ## Final audit fields
 
 These fields are completed only after fresh verification:
 
-- Local PDF page count: NEEDS TEAM INPUT - pending generation.
-- Visual PDF check: NEEDS TEAM INPUT - pending render and inspection.
-- Consistency check: NEEDS TEAM INPUT - pending content audit.
-- Remote main verified: NEEDS TEAM INPUT - pending push and remote tree check.
+- Local PDF page count: PASS - 4 pages.
+- Visual PDF check: PASS - all four pages inspected after the final rerender.
+- Consistency check: PARTIAL - structural links are present, factual team inputs are unresolved.
+- Remote main verified: PENDING - push and remote tree check remain.
 - Overall status: PARTIAL until the confirmation gate is resolved.
