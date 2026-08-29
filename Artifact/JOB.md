@@ -24,11 +24,12 @@ This file is the working source of truth for Team 42's Day 27 ownership, evidenc
 
 | Item | Repository evidence | Status | Safe handling |
 | --- | --- | --- | --- |
-| Project identity | Project name is DataUnifi in the task brief | Available | Use DataUnifi |
+| Project identity | Team member confirmed the product name is DataUnify; repository name remains DataUnifi | Available | Use DataUnify in artefact content and keep the required repository name unchanged |
 | Team identity | Team 42 and three member IDs are in the task brief | Available | Use the supplied member records |
-| Current 1-3 month goal | No confirmed goal in the repository | NEEDS TEAM INPUT | Do not invent a goal |
+| Current 1-3 month goal | `Artifact/TRANG_CONTENT.md` contains a pilot-ready goal proposed at the team member's request | NEEDS TEAM CONFIRMATION | Keep the goal labeled proposed until all three members review it |
 | Public demo or product link | No public link supplied | NEEDS TEAM INPUT | State that no public demo link is available |
-| Stakeholder identities/evidence | No stakeholder records in the repository | NEEDS TEAM INPUT | Use unconfirmed candidate rows only |
+| Stakeholder identities/evidence | Three named Team 42 members plus four role-specific stakeholder groups are mapped; external groups have not been contacted | CONTENT COMPLETE | Preserve the factual stance `Chưa tiếp cận`; replace role labels with names later only if real contacts exist |
+| Trang-owned content | Stakeholder Map, 2x2 matrix, four strategies, concise Conclusion-First Pitch, evidence limits, small ask, and objection response are in `Artifact/TRANG_CONTENT.md` | CONTENT COMPLETE | Ready for Huy to integrate; Huy and Dũng perform the team-level review |
 | RACI decision | No team-approved matrix in the repository | PROPOSED RACI | Label the matrix proposed |
 | Team-health scores | No personal 1-5 scores in the repository | NEEDS TEAM INPUT | Do not assign scores |
 | Competency and growth commitments | No confirmed commitments in the repository | NEEDS TEAM INPUT | Show measurable proposals pending confirmation |
@@ -40,18 +41,21 @@ The current package cannot claim full completion until the team confirms all ite
 ```text
 TEAM CONFIRMATION REQUIRED
 
-1. DataUnifi current goal:
-NEEDS TEAM INPUT
+1. DataUnify current goal:
+PROPOSED - move the MVP/POC to pilot-ready status with P1 security/export controls, renewed quality validation, and a limited human-approved pilot.
 
-2. Proposed RACI:
+2. External stakeholder follow-up:
+CONTENT COMPLETE - role-specific groups and factual `Chưa tiếp cận` stance are recorded. Add personal/organization names only after real contacts exist.
+
+3. Proposed RACI:
 NEEDS TEAM INPUT - confirm or edit the proposed matrix in the PDF.
 
-3. Team Health:
+4. Team Health:
 Huy: NEEDS TEAM INPUT
 Trang: NEEDS TEAM INPUT
 Dũng: NEEDS TEAM INPUT
 
-4. Competency / Growth commitments:
+5. Competency / Growth commitments:
 NEEDS TEAM INPUT
 
 Reply:
@@ -64,8 +68,8 @@ or edit the lines that need to change.
 | Gate | Current state | Reason |
 | --- | --- | --- |
 | Gate 0 - Scope | PARTIAL | Identity is known; current goal is not confirmed |
-| Gate 1 - Stakeholder | PARTIAL | No evidence-backed stakeholder identities or stance |
-| Gate 2 - Pitch & RACI | PARTIAL | Pitch can be structured; RACI is proposed only |
+| Gate 1 - Stakeholder | CONTENT COMPLETE - TEAM REVIEW PENDING | Trang's rubric content is complete; Huy and Dũng still need to perform the required team-level review |
+| Gate 2 - Pitch & RACI | PARTIAL | Conclusion-First Pitch and objection response are drafted; RACI is proposed only |
 | Gate 3 - AI Team | PARTIAL | Architecture and gaps require project-stage confirmation |
 | Gate 4 - Health & Growth | PARTIAL | Scores and commitments require individual inputs |
 | Gate 5 - Submission | PASS | README, one four-page PDF, clean QA, and remote availability are verified |
