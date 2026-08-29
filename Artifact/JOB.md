@@ -68,7 +68,7 @@ or edit the lines that need to change.
 | Gate 2 - Pitch & RACI | PARTIAL | Pitch can be structured; RACI is proposed only |
 | Gate 3 - AI Team | PARTIAL | Architecture and gaps require project-stage confirmation |
 | Gate 4 - Health & Growth | PARTIAL | Scores and commitments require individual inputs |
-| Gate 5 - Submission | PARTIAL | PDF and remote verification are pending |
+| Gate 5 - Submission | PASS | README, one four-page PDF, clean QA, and remote availability are verified |
 
 ## Local verification log
 
@@ -84,7 +84,7 @@ Verified on 2026-08-29 from the current checkout:
 | Generic unfinished-marker scan | PASS | No forbidden generic markers found outside ignored render intermediates |
 | Submission PDF count | PASS | Exactly one root PDF: `Day27_AI-Team-Lab_Team42.pdf` |
 | Cross-page consistency | PARTIAL | Proposed links are structurally aligned; factual stakeholder, goal, health, and owner inputs are still missing |
-| Remote main verification | PENDING | Push and remote tree check have not run yet |
+| Remote main verification | PASS | `HEAD` and `origin/main` are both `311c22c`; README, JOB, generator, tests, LICENSE, and PDF are present; raw GitHub checks returned HTTP 200 |
 
 ## Final audit fields
 
@@ -93,5 +93,5 @@ These fields are completed only after fresh verification:
 - Local PDF page count: PASS - 4 pages.
 - Visual PDF check: PASS - all four pages inspected after the final rerender.
 - Consistency check: PARTIAL - structural links are present, factual team inputs are unresolved.
-- Remote main verified: PENDING - push and remote tree check remain.
+- Remote main verified: YES - remote tree and raw GitHub README, JOB, and PDF checks passed.
 - Overall status: PARTIAL until the confirmation gate is resolved.
