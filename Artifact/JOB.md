@@ -25,7 +25,7 @@ This file records Team 42's confirmed Day 27 ownership, evidence, process artefa
 | Member | Owner areas |
 | --- | --- |
 | Nguyễn Quang Huy | Phase 0 scope; RACI; integration; README; final PDF QA; Gates 0, 2, and 5 |
-| Trần Thị Kiều Trang | Stakeholder Map; stakeholder strategy; conclusion-first pitch; objection handling; Pages 1–2; Gate 1 |
+| Trần Thị Kiều Trang | Stakeholder Map; stakeholder strategy; conclusion-first pitch; objection handling; Page 1 and the Pitch/Objection section of Page 2; Gate 1 |
 | Nguyễn Quý Dũng | AI Team Architecture; core roles; capability gaps; priority resourcing; Team Health; competency; Growth Plan; Pages 3–4; Gates 3–4 |
 
 ## Team confirmation record
@@ -63,15 +63,34 @@ Priority persuade/de-risk:
 1. Trợ lý Thủ trưởng — present the controlled demo/risk-control flow covering human approval, dry-run, rollback, masking, and audit log.
 2. Phòng Phần mềm — review API boundaries, tenant isolation, access controls, deployment assumptions, and maintainability before architecture freeze.
 
+Concrete actions for the next 1–2 weeks, matching Page 1 of the PDF:
+
+1. Send a one-page MVP scope and architecture/risk-control summary to Thủ trưởng.
+2. Run a short technical review with Phòng AI before the demo milestone.
+3. Present the controlled demo flow to Trợ lý Thủ trưởng and capture concerns.
+4. Share the API/architecture flow with Phòng Phần mềm before architecture freeze.
+
 ## Confirmed pitch
 
 Audience: **Thủ trưởng**.
 
 Conclusion: Team 42 đề xuất tiếp tục DataUnifi tới một MVP/demo nội bộ có kiểm soát, tập trung chứng minh AI Data Cleaning và Entity Matching trước khi cân nhắc mở rộng.
 
+Reasons:
+
+1. DataUnifi xử lý vấn đề dữ liệu khách hàng phân mảnh và không nhất quán giữa nhiều nguồn.
+2. Human approval, deterministic execution, dry-run/rollback, consent, masking, and audit logging reduce operational risk.
+3. MVP giới hạn cho phép đánh giá tính khả thi và chất lượng trước khi mở rộng.
+
 Evidence wording: `PROJECT_SUMMARY.md` documents the project architecture and risk controls; the repository does not claim production validation, measured accuracy, or business impact.
 
 Small ask: approve the controlled MVP/demo scope and acceptance criteria for the next milestone.
+
+Objection: AI chưa đủ đáng tin để cho phép xử lý hoặc liên kết dữ liệu quan trọng.
+
+Response: DataUnifi chỉ dùng AI để đề xuất cleaning, mapping, and weighting. Người dùng review; thay đổi được dry-run; approved rules chạy bằng deterministic engine; uncertain matches vào vùng review; cross-tenant data dùng consent, masking, and audit.
+
+Risk-reduction logic: controlled scope, named acceptance criteria, documented result, then a deliberate go/revise decision.
 
 ## Confirmed project RACI
 
@@ -89,6 +108,8 @@ Every task has exactly one accountable team member and at least one responsible 
 ## Confirmed AI Team and capability gaps
 
 Architecture: **Embedded**.
+
+Rationale: Team có ba core members và năng lực AI/Data gắn trực tiếp vào DataUnifi. Embedded giúp product, frontend/integration và AI/backend làm việc trong cùng squad, phù hợp quy mô hiện tại hơn một AI hub riêng.
 
 - Nguyễn Quang Huy — Product / Integration / Release ownership.
 - Trần Thị Kiều Trang — UX / Frontend / Stakeholder communication.
@@ -149,7 +170,7 @@ The content contract was updated from the pre-confirmation state to the confirme
 | Gate 2 — Pitch & RACI | PASS | Conclusion-first pitch, evidence boundary, small ask, objection response, six tasks, and one A/task are present. |
 | Gate 3 — AI Team | PASS | Embedded architecture, rationale, roles, three capability gaps, routes, partners, timing, and squad goal are present. |
 | Gate 4 — Health & Growth | PASS | Twelve scores, derived summary, L2 competency, next competency, practice, and three complete growth actions are present. |
-| Gate 5 — Submission | PASS (local) | Required root files, one four-page PDF, local QA, and branch artefact verification are complete; remote main verification is the post-merge step. |
+| Gate 5 — Submission | PASS | Required root files, one four-page PDF, local QA, public HTTP access, and remote `main` verification are complete. |
 
 | Check | Result | Evidence |
 | --- | --- | --- |
@@ -161,10 +182,12 @@ The content contract was updated from the pre-confirmation state to the confirme
 | Placeholder scan | PASS | No unresolved submission markers in README, JOB, PROJECT_SUMMARY, Artifact/individual, generator, or final PDF text. |
 | Visual PDF QA | PASS | Four rendered pages inspected for clipping, overlap, glyphs, table collisions, and footer overlap. |
 | Cross-page consistency | PASS | Page 1 stakeholders align with Page 2 pitch/RACI; Page 3 evaluation gap aligns with Page 4 priority/growth; owners align with RACI. |
-| Remote main verified | PENDING MERGE | Remote verification follows the clean PR merge. |
+| Remote main verified | PASS | Local `HEAD` and `origin/main` both resolve to `34f798b674cd6232869303a6550bf14515e76093`; the public repository returned HTTP 200. |
 
-Overall status: READY FOR MERGE
+Overall status: SUBMISSION READY
 
 Artifact operation marker: unavailable because `container_tools/mark_artifact_operation_started.mjs` is not present in the repository; the required command was attempted once and the supported generator was used.
-Main SHA: will be recorded after merge.
-PR: #1 — https://github.com/UwU-coder-factorial/Track1_Day27_Team42_DataUnifi/pull/1
+Verified submission SHA: `34f798b674cd6232869303a6550bf14515e76093`.
+Merged PRs: #1 and #2.
+Submission link: https://github.com/UwU-coder-factorial/Track1_Day27_Team42_DataUnifi
+JOB sync state: updated locally after PDF verification; not yet committed or pushed.
